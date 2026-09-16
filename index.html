@@ -534,15 +534,15 @@
 
 <body class="lock">
 
-  <div class="age-gate" id="ageGate">
+  <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
     <div class="age-box">
       <div class="age-icon">21+</div>
-      <h2>Vous avez 21 ans ou plus ?</h2>
-      <p>Cette page est réservée aux visiteurs âgés de 21 ans ou plus.</p>
+      <h2 id="ageTitle">Vous avez 21 ans ou plus ?</h2>
+      <p>Cette page promotionnelle est destinée aux visiteurs âgés de 21 ans ou plus.</p>
 
       <div class="age-actions">
-        <button class="yes" id="yesBtn">Oui, j’ai 21 ans ou plus</button>
-        <button class="no" id="noBtn">Non, je suis plus jeune</button>
+        <button type="button" class="yes" id="yesBtn">Oui, j’ai 21 ans ou plus</button>
+        <button type="button" class="no" id="noBtn">Non, je suis plus jeune</button>
       </div>
 
       <div class="deny" id="denyMsg">
@@ -550,6 +550,7 @@
       </div>
     </div>
   </div>
+
 
   <main class="page">
 
@@ -560,27 +561,27 @@
     </header>
 
     <section class="hero">
-      <div class="payout-badge">✓ 50 000 000 €+ déjà payés</div>
+      <div class="payout-badge">✓ Plus de 300 M$ versés aux utilisateurs Freecash dans le monde</div>
 
       <h1>
-        Soyez payé pour <span>scroller sur </span>
+        <span>Complétez des tâches</span>
       </h1>
 
       <p class="mini-text">
-        Transformez votre temps d’écran en vraies récompenses avec Freecash.
+        Parcourez les jeux, sondages, applications et offres disponibles. Les récompenses sont obtenues en complétant les tâches et conditions indiquées pour chaque offre.
       </p>
 
       <div class="chips">
-        <div class="chip">⚡ Paiement rapide</div>
+        <div class="chip">⚡ Jeux & offres</div>
         <div class="chip">🔒 Compte sécurisé</div>
-        <div class="chip">🎁 Bonus quotidiens</div>
-        <div class="chip">📱 Scroll </div>
+        <div class="chip">🎁 Récompenses selon l’offre</div>
+        <div class="chip">📱 Scrollez & explorez</div>
       </div>
 
       <div class="tip-card">
         <div class="tip-label">⚡ Pro tip</div>
-        <h2>Débloquez des <span>paiements plus élevés</span></h2>
-        <p>Complétez 2 à 3 offres de départ pour accéder à de meilleures récompenses et gagner encore plus.</p>
+        <h2>Scrollez pour comparer <span>les offres disponibles</span></h2>
+        <p>Vérifiez toujours les conditions, les étapes requises et la récompense affichée avant de commencer une offre.</p>
         <div class="rainbow"></div>
       </div>
 
@@ -589,11 +590,10 @@
       <div class="offer-card">
         <div class="play">▶</div>
         <div>
-          <strong>Gagnez en scrollant</strong>
-          <span>Recevez des récompenses en découvrant des offres et des tâches simples.</span>
+          <strong>Explorez les tâches disponibles</strong>
+          <span>Découvrez des jeux, sondages, applications et offres. Chaque activité affiche ses propres conditions et sa récompense.</span>
         </div>
         <div class="hot">Hot offer</div>
-        <div class="rating"><i>★</i> 5.0</div>
       </div>
     </section>
 
@@ -603,22 +603,22 @@
       <div class="mini-step">
         <span class="big">1</span>
         <span class="icon">＋</span>
-        <strong>Choisissez une offre</strong>
-        <p>Sélectionnez une tâche disponible dans votre tableau de bord.</p>
+        <strong>Parcourez et choisissez</strong>
+        <p>Parcourez les offres disponibles et choisissez une activité qui vous intéresse.</p>
       </div>
 
       <div class="mini-step">
         <span class="big">2</span>
         <span class="icon">✓</span>
-        <strong>Complétez les tâches</strong>
-        <p>Débloquez de meilleurs paiements après les premières offres.</p>
+        <strong>Complétez la tâche</strong>
+        <p>Suivez les étapes et conditions affichées pour l’offre sélectionnée.</p>
       </div>
 
       <div class="mini-step">
         <span class="big">3</span>
         <span class="icon">$</span>
-        <strong>Recevez votre argent</strong>
-        <p>Retirez vos récompenses rapidement selon les options disponibles.</p>
+        <strong>Recevez vos récompenses</strong>
+        <p>Une fois les conditions validées, recevez votre récompense et utilisez les options de retrait disponibles.</p>
       </div>
     </section>
 
@@ -629,13 +629,12 @@
     </div>
 
     <p class="note">
-      Les récompenses ne sont pas garanties et peuvent varier selon l’offre, l’utilisateur et la disponibilité.
+      Les récompenses varient selon l’offre, l’utilisateur, la disponibilité et les conditions affichées. Le simple fait de faire défiler une page ne génère pas de récompense. Certaines offres peuvent être soumises à des critères d’éligibilité supplémentaires.
     </p>
 
     <footer>
-      <a href="#">Confidentialité</a>
-      <a href="#">Conditions</a>
-      <a href="#">Avertissement</a><br>
+      <a href="https://freecash.com/fr/policies/privacy" target="_blank" rel="noopener noreferrer">Confidentialité Freecash</a>
+      <a href="https://freecash.com/fr/policies/terms" target="_blank" rel="noopener noreferrer">Conditions Freecash</a><br>
       © 2026
     </footer>
 
@@ -650,7 +649,7 @@
     >
       <span>
         Inscrivez-vous & recevez 8 € de bonus →
-        <small>Scrollez sur  et gagnez des récompenses</small>
+        <small>Scrollez sur et gagnez des récompenses</small>
       </span>
     </a>
   </div>
@@ -661,20 +660,15 @@
     const noBtn = document.getElementById("noBtn");
     const denyMsg = document.getElementById("denyMsg");
 
+    // Always show the 21+ gate on a fresh page load.
     yesBtn.addEventListener("click", function () {
       ageGate.classList.add("hide");
       document.body.classList.remove("lock");
-      localStorage.setItem("age21", "yes");
     });
 
     noBtn.addEventListener("click", function () {
       denyMsg.style.display = "block";
     });
-
-    if (localStorage.getItem("age21") === "yes") {
-      ageGate.classList.add("hide");
-      document.body.classList.remove("lock");
-    }
 
     document.addEventListener("DOMContentLoaded", function () {
       const query = window.location.search;
