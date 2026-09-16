@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Freecash — Découvrez les offres</title>
+  <title>Freecash x </title>
   <link rel="icon" href="data:," />
 
   <style>
@@ -55,6 +55,99 @@
     button,
     a {
       -webkit-tap-highlight-color: transparent;
+    }
+
+    .age-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background:
+        radial-gradient(circle at top, rgba(57,255,136,.34), transparent 38%),
+        rgba(2,5,3,.97);
+      transition: .25s ease;
+    }
+
+    .age-gate.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: scale(1.03);
+    }
+
+    .age-box {
+      width: 100%;
+      max-width: 360px;
+      padding: 26px 20px 20px;
+      text-align: center;
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(20,38,27,.96), rgba(6,12,8,.98));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+    }
+
+    .age-icon {
+      width: 76px;
+      height: 76px;
+      border-radius: 24px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      color: #031108;
+      font-size: 28px;
+      font-weight: 1000;
+      background: linear-gradient(180deg, #67ffa3, #20d66b);
+      box-shadow: 0 16px 36px rgba(57,255,136,.28);
+    }
+
+    .age-box h2 {
+      font-size: 42px;
+      line-height: .9;
+      letter-spacing: -.06em;
+      margin-bottom: 10px;
+    }
+
+    .age-box p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+
+    .age-actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .age-actions button {
+      border: 0;
+      min-height: 56px;
+      border-radius: 18px;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .yes {
+      color: #031108;
+      background: linear-gradient(180deg, #67ffa3, #20d66b);
+      box-shadow: 0 16px 30px rgba(32,214,107,.24);
+    }
+
+    .no {
+      color: #e8f3eb;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .deny {
+      display: none;
+      margin-top: 12px;
+      color: #ffc0c7;
+      font-size: 12px;
+      font-weight: 800;
     }
 
     .page {
@@ -439,51 +532,68 @@
   </style>
 </head>
 
-<body>
+<body class="lock">
+
+  <div class="age-gate" id="ageGate">
+    <div class="age-box">
+      <div class="age-icon">21+</div>
+      <h2>Vous avez 21 ans ou plus ?</h2>
+      <p>Cette page est réservée aux visiteurs âgés de 21 ans ou plus.</p>
+
+      <div class="age-actions">
+        <button class="yes" id="yesBtn">Oui, j’ai 21 ans ou plus</button>
+        <button class="no" id="noBtn">Non, je suis plus jeune</button>
+      </div>
+
+      <div class="deny" id="denyMsg">
+        Désolé, vous ne pouvez pas consulter cette page.
+      </div>
+    </div>
+  </div>
 
   <main class="page">
 
     <header class="top">
       <div class="brand-combo">
-        <img src="assets/freecash-logo.webp" alt="Freecash" onerror="this.style.display='none'"><span>Freecash</span>
+        <img src="assets/freecash-logo.webp" alt="Freecash">
       </div>
     </header>
 
     <section class="hero">
-      <div class="payout-badge">✓ 300 M$+ versés par Freecash*</div>
+      <div class="payout-badge">✓ 50 000 000 €+ déjà payés</div>
 
       <h1>
-        Scrollez. <span>Choisissez. Gagnez.</span>
+        Soyez payé pour <span>scroller sur </span>
       </h1>
 
       <p class="mini-text">
-        Parcourez les jeux, sondages, applications et offres disponibles. Les récompenses sont obtenues en remplissant les conditions indiquées pour chaque offre éligible.
+        Transformez votre temps d’écran en vraies récompenses avec Freecash.
       </p>
 
       <div class="chips">
-        <div class="chip">💰 Récompense affichée par offre</div>
+        <div class="chip">⚡ Paiement rapide</div>
         <div class="chip">🔒 Compte sécurisé</div>
-        <div class="chip">🎁 Montants variables</div>
-        <div class="chip">📱 Scrollez les offres</div>
+        <div class="chip">🎁 Bonus quotidiens</div>
+        <div class="chip">📱 Scroll </div>
       </div>
 
       <div class="tip-card">
         <div class="tip-label">⚡ Pro tip</div>
-        <h2>Comparez les <span>récompenses avant de commencer</span></h2>
-        <p>Scrollez les offres disponibles et vérifiez la récompense, l’objectif et les critères d’éligibilité affichés avant de commencer.</p>
+        <h2>Débloquez des <span>paiements plus élevés</span></h2>
+        <p>Complétez 2 à 3 offres de départ pour accéder à de meilleures récompenses et gagner encore plus.</p>
         <div class="rainbow"></div>
       </div>
 
-      <div class="section-title">Fil des récompenses</div>
+      <div class="section-title">Offre recommandée</div>
 
       <div class="offer-card">
         <div class="play">▶</div>
         <div>
-          <strong>Scrollez les offres. Choisissez la récompense qui vous convient.</strong>
-          <span>Vous obtenez la récompense affichée après avoir rempli les conditions d’une offre éligible.</span>
+          <strong>Gagnez en scrollant</strong>
+          <span>Recevez des récompenses en découvrant des offres et des tâches simples.</span>
         </div>
-        <div class="hot">Parcourir</div>
-        
+        <div class="hot">Hot offer</div>
+        <div class="rating"><i>★</i> 5.0</div>
       </div>
     </section>
 
@@ -493,22 +603,22 @@
       <div class="mini-step">
         <span class="big">1</span>
         <span class="icon">＋</span>
-        <strong>Parcourez les offres</strong>
-        <p>Faites défiler les offres et choisissez une activité qui vous intéresse.</p>
+        <strong>Choisissez une offre</strong>
+        <p>Sélectionnez une tâche disponible dans votre tableau de bord.</p>
       </div>
 
       <div class="mini-step">
         <span class="big">2</span>
         <span class="icon">✓</span>
-        <strong>Consultez les conditions</strong>
-        <p>Vérifiez les objectifs, les critères d’éligibilité et la récompense indiquée pour chaque offre.</p>
+        <strong>Complétez les tâches</strong>
+        <p>Débloquez de meilleurs paiements après les premières offres.</p>
       </div>
 
       <div class="mini-step">
         <span class="big">3</span>
         <span class="icon">$</span>
-        <strong>Recevez vos récompenses</strong>
-        <p>Après validation d’une activité éligible, les récompenses peuvent être retirées selon les options disponibles.</p>
+        <strong>Recevez votre argent</strong>
+        <p>Retirez vos récompenses rapidement selon les options disponibles.</p>
       </div>
     </section>
 
@@ -519,14 +629,14 @@
     </div>
 
     <p class="note">
-      * Freecash indique avoir versé plus de 300 M$ dans le monde. Les récompenses individuelles ne sont pas garanties et varient selon l’offre, l’éligibilité, la localisation, la disponibilité et le respect des conditions indiquées.
+      Les récompenses ne sont pas garanties et peuvent varier selon l’offre, l’utilisateur et la disponibilité.
     </p>
 
     <footer>
-      <a href="https://freecash.com/fr/policies/privacy-eu" target="_blank" rel="noopener noreferrer">Confidentialité</a>
-      <a href="https://freecash.com/fr/policies/terms" target="_blank" rel="noopener noreferrer">Conditions</a>
-      <br>
-      © 2026 · Les conditions de Freecash et de chaque offre s’appliquent.
+      <a href="#">Confidentialité</a>
+      <a href="#">Conditions</a>
+      <a href="#">Avertissement</a><br>
+      © 2026
     </footer>
 
   </main>
@@ -539,13 +649,33 @@
       rel="noopener noreferrer"
     >
       <span>
-        Scrollez les offres →
-        <small>Choisissez une offre et remplissez ses conditions pour gagner</small>
+        Inscrivez-vous & recevez 8 € de bonus →
+        <small>Scrollez sur  et gagnez des récompenses</small>
       </span>
     </a>
   </div>
 
   <script>
+    const ageGate = document.getElementById("ageGate");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const denyMsg = document.getElementById("denyMsg");
+
+    yesBtn.addEventListener("click", function () {
+      ageGate.classList.add("hide");
+      document.body.classList.remove("lock");
+      localStorage.setItem("age21", "yes");
+    });
+
+    noBtn.addEventListener("click", function () {
+      denyMsg.style.display = "block";
+    });
+
+    if (localStorage.getItem("age21") === "yes") {
+      ageGate.classList.add("hide");
+      document.body.classList.remove("lock");
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
       const query = window.location.search;
 
